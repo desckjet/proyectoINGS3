@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<title>Opciones Producto</title>
+</h:head>
+<h:body>
+
+	<h:form id="frm">
+	
+		<f:event listener="#{productoBean.traerProductos()}"
+			type="preRenderView"></f:event>
+
+		<p:commandButton value="Nuevo" oncomplete="PF('wdlgDatos').show();"
+			actionListener="#{productoBean.setAccion('Registrar')}"
+			update=":dlgDatos" />
+			
+		<p:commandButton value="Atras" action="menuAdmin"/>
+
+		<p:dataTable id="data" value="#{productoBean.lstProductos}"
+			var="producto">
+			<p:column headerText="Codigo">
+				<p:outputLabel value="#{producto.codigo}" />
+			</p:column>
+			<p:column headerText="Nombre">
+				<p:outputLabel value="#{producto.nombre}" />
+			</p:column>
+			<p:column headerText="Precio">
+				<p:outputLabel value="$#{producto.precio} COP" />
+			</p:column>
+			<p:column headerText="Disponible">
+				<p:outputLabel value="#{producto.cantidad}"/>
+			</p:column>
+
+			<p:column headerText="Modificar">
+				<p:commandLink value="Modificar"
+					actionListener="#{productoBean.leerID(producto)}"
+					oncomplete="PF('wdlgDatos').show();" update=":dlgDatos" />
+			</p:column>
+
+			<p:column headerText="Eliminar">
+				<p:commandLink value="Eliminar"
+					actionListener="#{productoBean.eliminar(producto)}" update="data" />
+			</p:column>
+		</p:dataTable>
+
+	</h:form>
+
+	<p:dialog header="Datos" widgetVar="wdlgDatos" id="dlgDatos">
+		<h:form>
+
+			<p:outputLabel value="Nombre" />
+			<p:inputText value="#{productoBean.producto.nombre}" />
+
+			<p:outputLabel value="Precio" />
+			<p:inputText value="#{productoBean.producto.precio}" />
+			
+			<p:outputLabel value="Cantidad" />
+			<p:inputText value="#{productoBean.producto.cantidad}" />
+
+			<p:commandButton value="#{productoBean.accion}"
+				actionListener="#{productoBean.operar()}"
+				oncomplete="PF('wdlgDatos').hide();" update=":frm:data" />
+
+			<p:commandButton value="Cancelar" immediate="true"
+				oncomplete="PF('wdlgDatos').hide();" />
+		</h:form>
+	</p:dialog>
+
+</h:body>
+</html>

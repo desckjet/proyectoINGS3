@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<title>Ventas</title>
+</h:head>
+<h:body>
+
+	<p:growl id="msj" showDetail="true" />
+
+	<f:event listener="#{personaBean.traerPersonas()}" type="preRenderView" />
+	<f:event listener="#{productoBean.traerProductos()}"
+		type="preRenderView" />
+
+	<h:form>
+	
+		<p:commandButton value="Atras" action="menuAdmin"/>
+		
+		<p:outputLabel value="Vendedor" />
+		<p:selectOneMenu value="#{ventaBean.venta.persona}"
+			converter="omnifaces.SelectItemsConverter">
+			<f:selectItem noSelectionOption="true" itemLabel="Seleccione"
+				itemValue="#{null}" />
+			<f:selectItems value="#{personaBean.lstPersonas}" var="per"
+				itemLabel="#{per.nombre}" itemValue="#{per}" />
+		</p:selectOneMenu>
+
+		<p:outputLabel value="Producto" />
+		<p:selectOneMenu value="#{ventaBean.producto}"
+			converter="omnifaces.SelectItemsConverter">
+			<f:selectItem noSelectionOption="true" itemLabel="Seleccione"
+				itemValue="#{null}" />
+			<f:selectItems value="#{productoBean.lstProductos}" var="pro"
+				itemLabel="#{pro.nombre}" itemValue="#{pro}" />
+		</p:selectOneMenu>
+
+		<p:outputLabel value="Cantidad" />
+		<p:inputText value="#{ventaBean.cantidad}" />
+
+		<p:commandButton value="Agregar"
+			actionListener="#{ventaBean.agregar()}" update="detalle" />
+
+		<p:dataTable id="detalle" value="#{ventaBean.lista}" var="det"
+			paginator="true">
+			<p:column headerText="Nombre Producto">
+				<p:outputLabel value="#{det.producto.nombre}" />
+			</p:column>
+			<p:column headerText="Precio">
+				<p:outputLabel value="#{det.producto.precio}" />
+			</p:column>
+			<p:column headerText="Cantidad">
+				<p:outputLabel value="#{det.cantidad}" />
+			</p:column>
+		</p:dataTable>
+
+		<p:commandButton value="Registrar"
+			actionListener="#{ventaBean.registrar()}" update="msj" action="Ventas"/>
+	</h:form>
+
+</h:body>
+</html>
