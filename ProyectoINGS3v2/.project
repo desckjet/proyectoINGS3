@@ -32,12 +32,12 @@
 		<link>
 			<name>WebContent/WEB-INF/lib/omnifaces-1.14.1.jar</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/primeFaces/omnifaces-1.14.1.jar</locationURI>
+			<locationURI>PARENT-3-PROJECT_LOC/eclipse-workspaceee/primeFaces/omnifaces-1.14.1.jar</locationURI>
 		</link>
 		<link>
 			<name>WebContent/WEB-INF/lib/primefaces-6.2.jar</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/primeFaces/primefaces-6.2.jar</locationURI>
+			<locationURI>PARENT-3-PROJECT_LOC/eclipse-workspaceee/primeFaces/primefaces-6.2.jar</locationURI>
 		</link>
 	</linkedResources>
 </projectDescription>
