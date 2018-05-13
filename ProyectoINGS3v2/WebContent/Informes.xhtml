@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<title>Informes</title>
+</h:head>
+<h:body>
+	
+	<h:form>
+	
+		<p:commandButton value="Atras" action="menuAdmin"/>
+		
+		<p:outputLabel for="inicial" value="Fecha Inicial:" />
+        <p:calendar id="inicial" value="#{informeBean.ven.fecha}" showOn="button" pattern="yyyy-MM-dd HH:mm:ss"/>
+		<p:outputLabel for="final" value="Fecha Final:" />
+        <p:calendar id="final" value="#{informeBean.ven.fecha2}" showOn="button" pattern="yyyy-MM-dd HH:mm:ss"/>
+        
+        <p:commandButton value="Buscar" actionListener="#{informeBean.informe()}" update="data"/>
+      
+        <p:separator/>
+        
+        <p:dataTable id="data" value="#{informeBean.lstInforme}" var="informe"> 
+        
+        	<p:column headerText="Vendedor">
+        		<p:outputLabel value="#{informe.personaNombre}"/>
+        	</p:column>
+        	<p:column headerText="Articulo">
+        		<p:outputLabel value="#{informe.productoNombre}"/>
+        	</p:column>
+        	<p:column headerText="Cantidad">
+        		<p:outputLabel value="#{informe.productoCantidad}"/>
+        	</p:column>
+        	<p:column headerText="Monto">
+        		<p:outputLabel value="#{informe.monto}"/>
+        	</p:column>
+        </p:dataTable>
+	</h:form>
+
+</h:body>
+</html>
