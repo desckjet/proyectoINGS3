@@ -13,13 +13,14 @@ import co.proyectoINGS3v2.modelo.Persona;
 public class PersonaDAO extends DAO {
 
 	public boolean loggedIn = false;
+	public int tipoU = 0;
 
 	public void login(Persona per) throws Exception {
 
 		ResultSet rs;
 		try {
 			this.conectar();
-			PreparedStatement st = this.getCn().prepareStatement("SELECT nombre,password FROM personas");
+			PreparedStatement st = this.getCn().prepareStatement("SELECT nombre,password,tipoPersona_id FROM personas");
 			rs = st.executeQuery();
 			FacesMessage message = null;
 
@@ -28,6 +29,7 @@ public class PersonaDAO extends DAO {
 				if (per.getNombre() != null && per.getNombre().equals(rs.getString(1)) && per.getPassword() != null
 						&& per.getPassword().equals(rs.getString(2))) {
 					loggedIn = true;
+					tipoU = rs.getInt(3);
 					message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Bienvenido", per.getNombre());
 					//elusuario = u.getName();
 					break;

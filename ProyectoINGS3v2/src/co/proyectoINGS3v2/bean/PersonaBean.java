@@ -47,7 +47,10 @@ public class PersonaBean {
 		try {
 			dao = new PersonaDAO();
 			dao.login(persona);
-			if(dao.loggedIn == true) {
+			if(dao.loggedIn == true && dao.tipoU == 1) {
+				return "menuEmp";
+			}
+			else if(dao.loggedIn == true && dao.tipoU == 2) {
 				return "menuAdmin";
 			}
 			else {

@@ -24,8 +24,6 @@ public class InformeDao extends DAO{
 					"AND ventas.fecha BETWEEN ? AND ?");
 			//st.setDate(1, ven.getFecha());
 			//st.setDate(2, ven.getFecha2());
-			System.out.println(new java.sql.Date(ven.getFecha().getTime()));
-			System.out.println(new java.sql.Date(ven.getFecha2().getTime()));
 			st.setDate(1, new java.sql.Date(ven.getFecha().getTime()));
 			st.setDate(2, new java.sql.Date(ven.getFecha2().getTime()));
 			
@@ -40,7 +38,6 @@ public class InformeDao extends DAO{
 				inf.setMonto(rs.getDouble(4));
 				
 				lista.add(inf);
-				System.out.println(lista);
 				
 			}
 		} catch (Exception e) {
