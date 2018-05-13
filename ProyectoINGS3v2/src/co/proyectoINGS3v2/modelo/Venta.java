@@ -1,11 +1,12 @@
 package co.proyectoINGS3v2.modelo;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Venta {
 	
 	private int codigo;
 	private Date fecha;
+	private Date fecha2;
 	private Persona persona;
 	private Double monto;
 	
@@ -20,6 +21,12 @@ public class Venta {
 	}
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
+	}
+	public Date getFecha2() {
+		return fecha2;
+	}
+	public void setFecha2(Date fecha2) {
+		this.fecha2 = fecha2;
 	}
 	public Persona getPersona() {
 		return persona;

@@ -81,7 +81,6 @@ public class PersonaBean {
 		PersonaDAO dao;
 		try {
 			dao = new PersonaDAO();
-			System.out.println(persona.getNombre());
 			dao.registrar(persona);
 			this.traerPersonas();
 		} catch (Exception e) {
