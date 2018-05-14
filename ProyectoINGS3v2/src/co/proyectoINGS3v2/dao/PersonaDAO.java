@@ -42,12 +42,12 @@ public class PersonaDAO extends DAO {
 
 			}
 
-			FacesContext.getCurrentInstance().addMessage(null, message);
+			//FacesContext.getCurrentInstance().addMessage(null, message);
 
 		} catch (Exception e) {
 			throw e;
 		} finally {
-			FacesContext.getCurrentInstance().getExternalContext().getFlash().setKeepMessages(true);
+			//FacesContext.getCurrentInstance().getExternalContext().getFlash().setKeepMessages(true);
 			this.cerrar();
 		}
 

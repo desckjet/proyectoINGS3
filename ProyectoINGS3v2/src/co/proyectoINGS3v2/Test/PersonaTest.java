@@ -9,13 +9,11 @@ import co.proyectoINGS3v2.modelo.Persona;
 
 public class PersonaTest {
 
-	private PersonaDAO per;
-	private Persona p;
+	private PersonaDAO per = new PersonaDAO();
+	private Persona p = new Persona();
 	
 	@Test
 	public void testLogin() throws Exception {
-		p = new Persona();
-		per = new PersonaDAO();
 		
 		p.setCodigo(1152710299);
 		p.setNombre("david");
@@ -25,7 +23,7 @@ public class PersonaTest {
 		per.login(p);
 		
 		System.out.println(per.loggedIn);
-		assertTrue(per.loggedIn);
+		assertEquals(true, per.loggedIn);
 	}
 
 	@Test
