@@ -31,7 +31,6 @@ public class PersonaDAO extends DAO {
 					loggedIn = true;
 					tipoU = rs.getInt(3);
 					message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Bienvenido", per.getNombre());
-					//elusuario = u.getName();
 					break;
 
 				} else {
@@ -41,7 +40,7 @@ public class PersonaDAO extends DAO {
 				}
 
 			}
-
+		
 			//FacesContext.getCurrentInstance().addMessage(null, message);
 
 		} catch (Exception e) {
@@ -91,7 +90,6 @@ public class PersonaDAO extends DAO {
 		} catch (Exception e) {
 			throw e;
 		} finally {
-			FacesContext.getCurrentInstance().getExternalContext().getFlash().setKeepMessages(true);
 			this.cerrar();
 		}
 		return lista;
