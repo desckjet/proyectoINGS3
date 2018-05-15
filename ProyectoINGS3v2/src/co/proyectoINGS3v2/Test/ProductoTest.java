@@ -53,7 +53,7 @@ public class ProductoTest {
 		p2.setPrecio(1500.00);
 		p2.setCantidad(4);
 		
-		p3.setCodigo(14);
+		p3.setCodigo(32);
 		p3.setNombre("nike");
 		p3.setPrecio(2000.00);
 		p3.setCantidad(10);
@@ -74,7 +74,7 @@ public class ProductoTest {
 		p2 = new Producto();
 		pro = new ProductoDao();
 		
-		p.setCodigo(10);
+		p.setCodigo(32);
 		p.setNombre("zapato");
 		p.setPrecio(1000.00);
 		p.setCantidad(4);
@@ -90,7 +90,7 @@ public class ProductoTest {
 		p = new Producto();
 		pro = new ProductoDao();
 		
-		p.setCodigo(123);
+		p.setCodigo(32);
 		p.setNombre("nike");
 		p.setPrecio(2000.00);
 		p.setCantidad(20);
@@ -105,7 +105,7 @@ public class ProductoTest {
 		p = new Producto();
 		pro = new ProductoDao();
 		
-		p.setCodigo(13);
+		p.setCodigo(32);
 		
 		pro.eliminar(p);
 		

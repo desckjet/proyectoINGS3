@@ -77,7 +77,7 @@ public class PersonaTest {
 		per = new PersonaDAO();
 		
 		p.setCodigo(123);
-		p.setNombre("pedro");
+		p.setNombre("petrosky");
 		p.setPassword("1089");
 		p.setTipo(1);
 		
